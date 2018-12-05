@@ -1,0 +1,1 @@
+@py.exe c:\repos\BoringStuff\maps\mapit.py %*
