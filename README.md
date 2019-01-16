@@ -22,7 +22,23 @@ to ensure that scrips can be run from CMD.
 Each folder contains readme file for description of available scripts
 
 ### Dependencies:
+####Python libraries
+**openpyxl** - working with excel files (Anaconda contains this lib)
 
+####Python libraries over conda command line
+**pypdf2** - working with PDF files
+conda install -c conda-forge pypdf2 
+
+**python-docx** - working with .docx files
+conda install -c conda-forge python-docx 
+
+**pillow**
+I had this same problem from . import _imaging as core ImportError: DLL load failed: The specified procedure could not be found. recently with Anaconda Navigator 1.6.12 running Python 3.6.4. I was loading PIL 4.3.0. Upgrading PIL to 5.0.0 via Anaconda Navigator did not fix it. I ultimately fixed it via the following two step procedure. 1. Uninstall it via conda remove --force pillow 2. Reinstall. Fearing something was wrong with the original Anaconda distribution, I reinstalled from conda-forge instead of conda's default. So I used conda install -c conda-forge pillow
+NOTE: not working still: ImportError: DLL load failed: The specified module could not be found.
+Next step was:
+conda uninstall pillow
+conda install pillow=5.0.0
+This works.
 
 #### Selenium
 
