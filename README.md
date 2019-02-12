@@ -9,6 +9,9 @@ Copy file BoringStuff.ini from root of the project to the user HOME directory.
 Python should be installed and configured. 
 
 ### Running Scripts from Command Line.
+
+Also you need to add system or user variable **BORING_STUFF_PATH** and point it to the directory, where you cloned the repository.
+
 Directory ./script should be added on the system Path. Now I support only Windows like bat files. 
 If you want to check if everything works fine, just type in command line.
 Run command
@@ -17,6 +20,7 @@ hello
 
 to ensure that scrips can be run from CMD. 
   
+<a href="./scripts/README.md">Available commands</a>
 
 ### Documentation notes
 Each folder contains readme file for description of available scripts
@@ -39,6 +43,8 @@ Next step was:
 conda uninstall pillow
 conda install pillow=5.0.0
 This works.
+
+
 
 #### Selenium
 

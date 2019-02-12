@@ -1,1 +1,1 @@
-@py.exe c:\repos\BoringStuff\maps\mapit.py %*
+@py.exe %BORING_STUFF_PATH%maps\mapit.py %*

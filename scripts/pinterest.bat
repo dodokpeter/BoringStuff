@@ -1,1 +1,1 @@
-@py.exe c:\repos\BoringStuff\webs\pinterest.py %*
+@py.exe %BORING_STUFF_PATH%webs\pinterest.py %*

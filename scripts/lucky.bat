@@ -1,1 +1,1 @@
-@py.exe c:\repos\BoringStuff\webs\lucky.py %*
+@py.exe %BORING_STUFF_PATH%webs\lucky.py %*

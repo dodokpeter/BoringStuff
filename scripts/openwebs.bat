@@ -1,1 +1,1 @@
-@py.exe c:\repos\BoringStuff\webs\openwebs.py %*
+@py.exe %BORING_STUFF_PATH%webs\openwebs.py %*

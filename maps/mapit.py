@@ -1,6 +1,6 @@
 #! python3
 
-# ideas - check the route for Jaja to Home
+# ideas - check the defined route
 
 
 import webbrowser
