@@ -53,3 +53,10 @@ Configuration (in userHome/BoringStuff.ini):
 
     [Pinterest]
     RandomBoard: https://pinterest.com/username/board.rss
+    
+###Youtube
+Download youtube video.
+Run command:
+
+    youtube -a [youtube url] - it creates also mp3 file
+    youtube [youtube url]

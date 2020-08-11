@@ -1,12 +1,12 @@
 # BoringStuff
-My **python** scripts to ease my life.
+My **python** scripts to ease my life. 
 
 ## Set up
 ### Configuration
 Copy file BoringStuff.ini from root of the project to the user HOME directory.
 
 ### Python 
-Python should be installed and configured. 
+Python should be installed and configured. I prefer to use Anaconda for Python setup. 
 
 ### Running Scripts from Command Line.
 
@@ -43,6 +43,11 @@ Next step was:
 conda uninstall pillow
 conda install pillow=5.0.0
 This works.
+
+
+**pytube3**
+I run the command in anaconda terminal
+conda install -c conda-forge youtube-dl
 
 
 

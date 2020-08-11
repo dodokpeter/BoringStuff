@@ -1,0 +1,1 @@
+@py.exe %BORING_STUFF_PATH%webs\youtube.py %*
