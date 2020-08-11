@@ -60,3 +60,4 @@ Run command:
 
     youtube -a [youtube url] - it creates also mp3 file
     youtube [youtube url]
+    youtube [youtube playlist url]

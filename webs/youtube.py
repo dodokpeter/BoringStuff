@@ -1,11 +1,14 @@
 #! python3
-# download youtube video
+# download youtube videos
 #
 # youtube -a [youtube url]
 # a means also download audio file as mp3
 #
 # youtube [youtube url]
 # download only video
+#
+# youtube [playlist url]
+# download all videos from playlist
 
 from pathlib import Path
 
@@ -15,6 +18,7 @@ import codecs
 import sys
 import os
 from moviepy.editor import *
+
 
 # Compatibility fixes for Windows
 if sys.platform == 'win32':
@@ -35,8 +39,9 @@ url_to_download = sys.argv[argIndex:]
 
 #download video
 #make it more sofisticated and configurable
-outtmpl = home + '\\Videos\\YoutubeDownload\\%(title)s.%(ext)s'
-audioDir = home + '\\Videos\\YoutubeDownload\\Audio\\'
+dir = home + '\\Videos\\YoutubeDownload\\'
+outtmpl = dir + '%(autonumber)s-%(title)s.%(ext)s'
+audioDir = dir + 'Audio\\'
 retries = 3
 cachedir = home + '\\Videos\\cacheYoutube\\'
 verbose = None
@@ -157,18 +162,27 @@ ydl_opts = {
     # 'geo_bypass_country': opts.geo_bypass_country,
     # 'geo_bypass_ip_block': opts.geo_bypass_ip_block,
     # just for deprecation check
-    # 'autonumber': opts.autonumber if opts.autonumber is True else None,
     # 'usetitle': opts.usetitle if opts.usetitle is True else None,
 }
 
-with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download(url_to_download)
-    info = ydl.extract_info(url_to_download[0], download=False)
-    filename = info.get('title')
-    mp4_file = ydl.prepare_filename(info)
 
-    if (alsoAudioFile):
+def toMP3(filename, mp4_file):
+    if alsoAudioFile:
         video = VideoFileClip(mp4_file)
         if not os.path.exists(audioDir):
             os.mkdir(audioDir)
         video.audio.write_audiofile(audioDir + filename + '.mp3')
+
+
+with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    info = ydl.extract_info(url_to_download[0], download=True)
+    if info['_type'] == 'playlist':
+        for video in info['entries']:
+            print('Video #%d: %s' % (video['playlist_index'], video['title']))
+            filename = f"{video['playlist_index']:05d}-" + video['title']
+            mp4file = dir + filename + '.' + video['ext']
+            toMP3(filename, mp4file)
+    else:
+        toMP3(info.get('title'), ydl.prepare_filename(info))
+
+
