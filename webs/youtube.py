@@ -13,6 +13,8 @@ import youtube_dl
 
 import codecs
 import sys
+import os
+from moviepy.editor import *
 
 # Compatibility fixes for Windows
 if sys.platform == 'win32':
@@ -28,15 +30,17 @@ alsoAudioFile = False
 if str(sys.argv[1]).startswith('-a'):
     argIndex += 1
     alsoAudioFile = True
-    
+
 url_to_download = sys.argv[argIndex:]
 
 #download video
 #make it more sofisticated and configurable
 outtmpl = home + '\\Videos\\YoutubeDownload\\%(title)s.%(ext)s'
+audioDir = home + '\\Videos\\YoutubeDownload\\Audio\\'
 retries = 3
 cachedir = home + '\\Videos\\cacheYoutube\\'
 verbose = None
+format = 'mp4'
 ydl_opts = {
     # 'usenetrc': opts.usenetrc,
     # 'username': opts.username,
@@ -55,10 +59,10 @@ ydl_opts = {
     # 'forcedescription': opts.getdescription,
     # 'forceduration': opts.getduration,
     # 'forcefilename': opts.getfilename,
-    # 'forceformat': opts.getformat,
+    'forceformat': format,
     # 'forcejson': opts.dumpjson or opts.print_json,
     # 'dump_single_json': opts.dump_single_json,
-    # 'format': opts.format,
+    'format': format,
     # 'listformats': opts.listformats,
     'outtmpl': outtmpl,
     # 'autonumber_size': opts.autonumber_size,
@@ -159,3 +163,12 @@ ydl_opts = {
 
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     ydl.download(url_to_download)
+    info = ydl.extract_info(url_to_download[0], download=False)
+    filename = info.get('title')
+    mp4_file = ydl.prepare_filename(info)
+
+    if (alsoAudioFile):
+        video = VideoFileClip(mp4_file)
+        if not os.path.exists(audioDir):
+            os.mkdir(audioDir)
+        video.audio.write_audiofile(audioDir + filename + '.mp3')

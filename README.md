@@ -49,7 +49,9 @@ This works.
 I run the command in anaconda terminal
 conda install -c conda-forge youtube-dl
 
-
+**MoviePy**
+Installation command
+conda install -c conda-forge moviepy
 
 #### Selenium
 
