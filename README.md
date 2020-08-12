@@ -26,7 +26,7 @@ to ensure that scrips can be run from CMD.
 Each folder contains readme file for description of available scripts
 
 ### Dependencies:
-####Python libraries
+#### Python libraries
 **openpyxl** - working with excel files (Anaconda contains this lib)
 
 ####Python libraries over conda command line
