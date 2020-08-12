@@ -1,1 +1,1 @@
-@py.exe %BORING_STUFF_PATH%scripts\hello.py %*
+@python %BORING_STUFF_PATH%scripts\hello.py %*

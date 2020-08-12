@@ -1,1 +1,1 @@
-@py.exe %BORING_STUFF_PATH%webs\pinterest.py %*
+@python %BORING_STUFF_PATH%webs\pinterest.py %*

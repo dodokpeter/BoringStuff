@@ -1,1 +1,1 @@
-@py.exe %BORING_STUFF_PATH%maps\mapit.py %*
+@python %BORING_STUFF_PATH%maps\mapit.py %*
