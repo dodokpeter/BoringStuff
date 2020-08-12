@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 import youtube_dl
-import moviepy
+from moviepy.editor import *
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
 # Examples for lib
@@ -57,14 +57,15 @@ ydl_opts = {
     'logtostderr': outtmpl == '-',
     'verbose': verbose,
     'cachedir': cachedir,
+    'ignoreerrors': True,
 }
 
 
 def mp3(mp3_file_name, mp4_file):
     if alsoAudioFile:
         videofile = VideoFileClip(mp4_file)
-        if not moviepy.editor.os.path.exists(audioDir):
-            moviepy.editor.os.mkdir(audioDir)
+        if not os.path.exists(audioDir):
+            os.mkdir(audioDir)
         videofile.audio.write_audiofile(audioDir + mp3_file_name + '.mp3')
 
 
@@ -74,7 +75,12 @@ with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         for video in info['entries']:
             print('Video #%d: %s' % (video['playlist_index'], video['title']))
             filename = f"{video['playlist_index']:05d}-" + video['title']
-            path_with_album = dir + video['creator'] + ' - ' + video['playlist_title']
+
+            #if creator is not present, then youtube dl use NA string
+            creator = video['creator']
+            if creator is None: creator = 'NA'
+            path_with_album = dir + creator + ' - ' + video['playlist_title']
+
             mp4file = path_with_album + '\\' + filename + '.' + video['ext']
             audioDir = path_with_album + ' - audio\\'
             mp3(filename, mp4file)
