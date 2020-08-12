@@ -1,4 +1,4 @@
-##Running from Windows 
+## Running from Windows
 This folder is intended as bat files for python scripts. 
 This bat can be called from command line directly, therefore you need to put them
 on path variable. 
@@ -11,15 +11,15 @@ Run command:
 
 to ensure that scrips can be run from CMD. 
 
-##Available scripts
+## Available scripts
 
-###Hello
+### Hello
 Run command:
 
     hello
 
 to ensure that scrips can be run from CMD. 
-###Lucky
+### Lucky
 
 Open several (default is 4) page in default browser from googling
 
@@ -32,7 +32,7 @@ Parameters:
 
 **-n3** - number of pages opened in browser
 
-###Mapit
+### Mapit
 Open google map with specific address:
 - default is taken from clipboard
 - from argument of the command
@@ -42,7 +42,7 @@ Run command:
     mapit  (takes address from clipboard)
     mapit Bratislava
 
-###Pinterest
+### Pinterest
 Open random picture from pinteres board
 
 Run command:
@@ -54,7 +54,7 @@ Configuration (in userHome/BoringStuff.ini):
     [Pinterest]
     RandomBoard: https://pinterest.com/username/board.rss
     
-###Youtube
+### Youtube
 Download youtube video.
 Run command:
 
