@@ -21,6 +21,15 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 # Examples for lib
 # https://www.programcreek.com/python/example/98358/youtube_dl.YoutubeDL
 
+MP3 = '.mp3'
+EXT = 'ext'
+PLAYLIST_TITLE = 'playlist_title'
+CREATOR = 'creator'
+TITLE = 'title'
+PLAYLIST_INDEX = 'playlist_index'
+ENTRIES = 'entries'
+PLAYLIST = 'playlist'
+TYPE = '_type'
 
 # Compatibility fixes for Windows
 if sys.platform == 'win32':
@@ -66,25 +75,25 @@ def mp3(mp3_file_name, mp4_file):
         videofile = VideoFileClip(mp4_file)
         if not os.path.exists(audioDir):
             os.mkdir(audioDir)
-        videofile.audio.write_audiofile(audioDir + mp3_file_name + '.mp3')
+        videofile.audio.write_audiofile(audioDir + mp3_file_name + MP3)
 
 
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     info = ydl.extract_info(url_to_download[0], download=True)
-    if info['_type'] == 'playlist':
-        for video in info['entries']:
-            print('Video #%d: %s' % (video['playlist_index'], video['title']))
-            filename = f"{video['playlist_index']:05d}-" + video['title']
+    if TYPE in info.keys() and info[TYPE] == PLAYLIST:
+        for video in info[ENTRIES]:
+            print('Video #%d: %s' % (video[PLAYLIST_INDEX], video[TITLE]))
+            filename = f"{video[PLAYLIST_INDEX]:05d}-" + video[TITLE]
 
             #if creator is not present, then youtube dl use NA string
-            creator = video['creator']
+            creator = video[CREATOR]
             if creator is None: creator = 'NA'
-            path_with_album = dir + creator + ' - ' + video['playlist_title']
+            path_with_album = dir + creator + ' - ' + video[PLAYLIST_TITLE]
 
-            mp4file = path_with_album + '\\' + filename + '.' + video['ext']
+            mp4file = path_with_album + '\\' + filename + '.' + video[EXT]
             audioDir = path_with_album + ' - audio\\'
             mp3(filename, mp4file)
     else:
-        mp3(info.get('title'), ydl.prepare_filename(info))
+        mp3(info.get(TITLE), ydl.prepare_filename(info))
 
 
