@@ -14,6 +14,7 @@ if len(sys.argv) > 1:
         im = Image.open(directory + '/' + x)
         im_invert = ImageOps.invert(im)
         im_invert.save(directory + '/negative' + x )
+        print("Picture " + x + " was changed to negative")
 
 else:
     print("No parameter was inserted.")
