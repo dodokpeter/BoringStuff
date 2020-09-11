@@ -1,0 +1,1 @@
+@python %BORING_STUFF_PATH%pictures\negative.py %*
