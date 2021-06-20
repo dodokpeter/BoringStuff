@@ -1,0 +1,9 @@
+# Sample of the configuration file
+me:
+    name: myName
+    surname: mySurname
+    age: 99
+
+
+pinterest:
+    randomBoard: https://sk.pinterest.com/username/board.rss

@@ -6,16 +6,13 @@ My **python** scripts to ease my life.
 if needed, copy file BoringStuff.ini from root of the project to the user HOME directory.
 
 ### Python 
-Python should be installed and configured. I prefer to use Anaconda for Python setup. 
+Python should be installed and configured. I prefer to use Anaconda3 for Python setup, which you can download from https://www.anaconda.com/products/individual
 
-### Running Scripts from Command Line.
-
-Also you need to add system or user variable **BORING_STUFF_PATH** and point it to the directory, where you cloned the repository.
+### First run
+When you are about to start using boring stuff scripts, Please run this command from directory, where you've cloned this project:
 ```
-BORING_STUFF_PATH=/path/to/the/git/repo/
-#note: slash on the end of the path 
+first.bat
 ```
-Directory $BORING_STUFF_PATH/scripts should be added on the system Path (or %BORING_STUFF_PATH%/scripts on windows). Now I support only Windows like bat files. 
 If you want to check if everything works fine, just type in command line.
 Run command
 ```
