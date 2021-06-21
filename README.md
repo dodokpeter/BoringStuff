@@ -7,6 +7,8 @@ if needed, copy file BoringStuff.ini from root of the project to the user HOME d
 
 ### Python 
 Python should be installed and configured. I prefer to use Anaconda3 for Python setup, which you can download from https://www.anaconda.com/products/individual
+Necessary packages, that need to be installed into python:
+- pyyaml   '''pip install pyyaml''' - editing and readin yaml files, in Anaconda3 it's preinstalled
 
 ### First run
 When you are about to start using boring stuff scripts, Please run this command from directory, where you've cloned this project:

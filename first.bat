@@ -22,6 +22,14 @@ ECHO Checking python..
 FOR /f "usebackq tokens=*" %%A IN (`@python %BORING_STUFF_PATH%\python\version.py %*`) DO Set PYTHON_VERSION=%%A
 ECHO %PYTHON_VERSION%
 
-echo Creating configuration..
+ECHO Creating new configuration..
+REM HOME user variable should be pointing to user home.
+REM Some company policy sets  %HOMEDRIVE% to different network drive and %HOMEPATH% to \
 
+SET HOME_DIR=%HOME%\.boring-stuff
+RMDIR /s %HOME_DIR%
+MKDIR %HOME_DIR%
 
+COPY BoringStuff.yml %HOME_DIR%\BoringStuff.yml
+
+ECHO End initialisation process, thanks
