@@ -7,9 +7,18 @@ if needed, copy file BoringStuff.ini from root of the project to the user HOME d
 ### Python 
 Necessary packages, that need to be installed into python:
 - ankipandas   '''pip3 install --user --upgrade ankipandas''' 
+- regex 
 
 ### JUPYTER
 To work with ankipandas in jupyter, would be nice to start jupyter notebook over borring-stuff space in Anaconda. 
 
 ## Scripts
 ### Removing tags from cards
+```
+removeTags.bat
+```
+This command asked user, which deck he wants to clean up according to html tags and then perform the tasks:
+- remove br tags
+- remove span tags
+- handling html special chars
+

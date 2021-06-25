@@ -2,22 +2,15 @@
 # 22.6.2021 - 2h
 # 23.6.2021 - 2h
 # 24.6.2021 - 5h
-
-# uses <span style="background-color: rgba(255, 255, 255, 0.9);">Ich will in einem Haus mit einem
-# groß..&nbsp;</span><span style="background-color: rgba(255, 255, 255, 0.9);">&nbsp;Garten wohnen.</span>
-
+# 25.6.2021 - 0.5h
 
 from ankipandas import Collection
 import os
 
 from anki import MODEL_BASIC, MODEL_BASIC_AND_REVERTED, ANKI_CONFIG
-from configuration import load_config, HOME_DIRECTORY, load_config_value
-from user_inputs import select_from_list, ask_string_value
-
-
-def clean_html_tags(x):
-    x = '<br>' + x
-    return x
+from anki.cleam_html import clean_html
+from configuration import HOME_DIRECTORY, load_config_value
+from user_inputs import select_from_list
 
 
 def selection(_relevant_notes, _nmodel):
@@ -40,8 +33,8 @@ def clean_html_tags_for_basic_cards(_selection):
     _selection.fields_as_columns(inplace=True)
     log_notes(_selection, 'Before transformation:')
 
-    _selection['nfld_Front'] = clean_html_tags(_selection['nfld_Front'])
-    _selection['nfld_Back'] = clean_html_tags(_selection['nfld_Back'])
+    _selection['nfld_Front'] = clean_html(_selection['nfld_Front'])
+    _selection['nfld_Back'] = clean_html(_selection['nfld_Back'])
 
     log_notes(_selection, 'After transformation:')
 
