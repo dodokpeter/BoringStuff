@@ -3,22 +3,37 @@ import sys
 
 from core.user_inputs.inputs import select_from_list
 
-print('Welcome in ANKI automations. Please select what you want to do:')
+print('**********************************************')
+print('Welcome in ANKI automations.')
+print('**********************************************')
 
-# read an options if provided
-command = str(sys.argv[1])
+command = None
+CMD_CLEAN_TAGS = 'ct'
 
-clean_tags_command = command.startswith('ct')
 
-if not clean_tags_command:
+def select_command():
     options = [
         'clean the html tags in deck',
     ]
-    selected_index_of_deck = select_from_list(options)
-    if selected_index_of_deck == 0:
-        clean_tags_command = True
+    selected_index = select_from_list(options, with_no_selection=True)
+    if selected_index == 0:
+        return CMD_CLEAN_TAGS
+    else:
+        return None
 
-if clean_tags_command:
-    clean_tags()
+
+# read an options if provided
+if len(sys.argv) > 1:
+    command = sys.argv[1]
 else:
-    print('Sorry, command -' + command + '- is not valid.')
+    print("Please select what you want to do:")
+    command = select_command()
+
+# do command
+if command is None:
+    print('Sorry, you selected to do nothing.')
+else:
+    if command.startswith(CMD_CLEAN_TAGS):
+        clean_tags()
+    else:
+        print('Sorry, command -' + command + '- is not valid.')
