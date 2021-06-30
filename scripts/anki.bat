@@ -1,0 +1,1 @@
+@python %BORING_STUFF_PATH%cases\anki\anki_base.py %*

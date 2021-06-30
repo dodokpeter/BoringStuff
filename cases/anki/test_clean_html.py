@@ -1,4 +1,4 @@
-from anki.cleam_html import trim_br, remove_span, decode_html_special
+from cases.anki.cleam_html import trim_br, remove_span, decode_html_special
 
 
 def assert_func(func, source, expected):

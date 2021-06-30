@@ -1,7 +1,7 @@
 import yaml
 import os
 
-from user_inputs import ask_string_value
+from core.user_inputs.inputs import ask_string_value
 
 HOME_DIRECTORY = os.environ['HOME']
 CONFIG_DIRECTORY = os.sep + '.boring-stuff'

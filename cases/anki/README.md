@@ -14,11 +14,16 @@ To work with ankipandas in jupyter, would be nice to start jupyter notebook over
 
 ## Scripts
 ### Removing tags from cards
+Next command will ask you what you want to do with anki - it's just a basic entry point 
 ```
-removeTags.bat
+anki
 ```
-This command asked user, which deck he wants to clean up according to html tags and then perform the tasks:
+
+Next command asked user, which deck he wants to clean up according to html tags and then perform the tasks:
 - remove br tags
 - remove span tags
 - handling html special chars
+```
+anki ct
+```
 
