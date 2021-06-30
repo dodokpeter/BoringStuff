@@ -3,6 +3,7 @@
 # 23.6.2021 - 2h
 # 24.6.2021 - 5h
 # 25.6.2021 - 3.5h
+# 30.6.2021 - 1h
 
 from ankipandas import Collection
 import os
