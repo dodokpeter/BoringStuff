@@ -1,7 +1,7 @@
 import yaml
 import os
 
-from core.user_inputs.inputs import ask_string_value
+from core.console.inputs import ask_string_value
 
 HOME_DIRECTORY = os.environ['HOME']
 CONFIG_DIRECTORY = os.sep + '.boring-stuff'
@@ -35,7 +35,7 @@ def save_config(config_name, obj):
         return yaml.dump(obj, yaml_file)
 
 
-def load_config_value(config_name, message, default,  config_key1, config_key2=None):
+def load_config_value(config_name, message, default,  config_key1):
     config = load_config(config_name)
     value = config.get(config_key1, None)
     if value is None:

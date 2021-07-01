@@ -1,7 +1,7 @@
 from cases.anki.remove_tags import clean_tags
 import sys
 
-from core.user_inputs.inputs import select_from_list
+from core.console.inputs import select_from_list
 
 print('**********************************************')
 print('Welcome in ANKI automations.')
@@ -15,7 +15,7 @@ def select_command():
     options = [
         'clean the html tags in deck',
     ]
-    selected_index = select_from_list(options, with_no_selection=True)
+    selected_index = select_from_list("Select action: ", options, with_no_selection=True)
     if selected_index == 0:
         return CMD_CLEAN_TAGS
     else:

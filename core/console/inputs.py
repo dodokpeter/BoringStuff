@@ -1,11 +1,11 @@
 # user will be asked for selection from the string list
-def select_from_list(list_of_choices, with_no_selection=False):
+def select_from_list(input_message, list_of_choices, with_no_selection=False):
     list_len = len(list_of_choices)
     for i in range(list_len):
         print('Select ' + str(i) + ' for ' + list_of_choices[i])
     index = -1
     while index < 0 or index > list_len - 1:
-        index = int(input("Select your deck: "))
+        index = int(input(input_message))
         if with_no_selection:
             break
     if index < 0 or index > list_len - 1:
