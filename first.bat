@@ -18,6 +18,12 @@ ECHO *********************************************************
 ECHO %PATH%
 ECHO *********************************************************
 
+REM Set PYTHONPATH - to be able to run script from windows command line
+REM Widows identifies python packages via this environment variable
+REM In it is not set, it returns, that it cannot find python module from this project
+REM TODO if PYTHONPATH already there, then add new value
+SETX PYTHONPATH %BORING_STUFF_PATH%
+
 ECHO Checking python..
 FOR /f "usebackq tokens=*" %%A IN (`@python %BORING_STUFF_PATH%\python\version.py %*`) DO Set PYTHON_VERSION=%%A
 ECHO %PYTHON_VERSION%
